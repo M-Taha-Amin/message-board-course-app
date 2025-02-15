@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Message</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>Update Existing Message Form</h1>
+    <form
+      action="/messages/<%= message.id %>?_method=PUT"
+      method="post"
+      autocomplete="off">
+      <input type="text" name="content" value="<%= message.content %>" />
+      <button type="submit">Update Message</button>
+      <button type="button"><a href="/">Cancel</a></button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <% messages.forEach(message => { %>
+    <div class="message-container">
+      <h1><%= message.content %> - <%= message.author.username %></h1>
+      <div class="form-container">
+        <% if (isAuthenticated && loggedInUser._id.toString() ===
+        message.author._id.toString() ) { %>
+        <form action="/messages/<%= message.id %>?_method=Delete" method="post">
+          <button type="submit">Delete</button>
+          <a href="/update-message/<%= message.id %>">
+            <button type="button">Update</button></a
+          >
+        </form>
+        <% } %>
+      </div>
+    </div>
+
+    <% }) %>
+    <button>
+      <a href="/new-message">Add New Message</a>
+    </button>
+    <% if (isAuthenticated) { %>
+    <form action="/auth/logout" method="post">
+      <button>Logout</button>
+    </form>
+    <% } %>
+  </body>
+</html>

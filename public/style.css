@@ -1,0 +1,42 @@
+.form-container {
+  margin-bottom: 20px;
+}
+
+.message-container {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+
+button {
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  scale: 1.05;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  padding: 4px;
+  font-size: 1rem;
+}
+
+form {
+  margin-block: 16px;
+}
