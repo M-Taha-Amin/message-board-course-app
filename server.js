@@ -24,9 +24,11 @@ app.use('/', viewsRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/auth', authRoutes);
 
-app.listen(3000, async function () {
-  console.log('Server is running...');
-  connectDB();
-});
+async function startApp() {
+  await connectDB();
+  app.listen(3000, function () {
+    console.log('Server is running...');
+  });
+}
 
-module.exports = app;
+startApp();
