@@ -24,7 +24,18 @@ app.use('/', viewsRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/auth', authRoutes);
 
-app.listen(3000, async function () {
-  console.log('Server is running...');
-  await connectDB();
-});
+connectDB()
+  .then(() => {
+    console.log('Database connected');
+    // Start the server after the database connection is established
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error('Database connection error:', err);
+    process.exit(1); // Exit the process if the database connection fails
+  });
+
+module.exports = app; // Export for Vercel
