@@ -26,7 +26,7 @@ app.use('/auth', authRoutes);
 
 app.listen(3000, async function () {
   console.log('Server is running...');
-  await connectDB();
+  connectDB();
 });
 
 module.exports = app;
